@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>lista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none" *ngIf="listadoRecipes; else NoListado">
+      <ion-item *ngFor="let receta of listadoRecipes">
+          <ion-avatar slot="start">
+              <img [src]="receta.photoUrl" alt="{{receta.imagen}}">
+          </ion-avatar>
+          <ion-label>
+              <h3>{{receta.title}}</h3>      
+          </ion-label>
+          <ion-icon name="chevron-forward-outline"  (click)="getDetalle(receta)"></ion-icon>
+      </ion-item>
+  </ion-list>
+  <ng-template #NoListado>
+      <h1>No hay elementos para mostrar!!!!</h1>
+  </ng-template>
+
+</ion-content>
